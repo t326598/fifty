@@ -14,7 +14,6 @@ export default defineComponent({
 
 <style>
 .mainbody {
-  background-color: black;
   color: white;
   min-height: 100vh;
 }
