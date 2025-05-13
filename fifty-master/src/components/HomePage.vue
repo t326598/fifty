@@ -366,6 +366,7 @@ const calendarOptions = ref({
 }
 
 .member-card {
+  background-color: white;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   padding: 10px;
@@ -381,6 +382,7 @@ const calendarOptions = ref({
 }
 
 .member-card-image {
+  /* background-color: white; */
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   padding: 10px;
