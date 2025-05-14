@@ -1,5 +1,4 @@
 <template>
-  <div class="starry-background">
     <div class="mainbody">
       <div class="header">
         <h1 class="header1">FIFTY FIFTY</h1>
@@ -93,11 +92,10 @@
         <button class="modal-close" @click="closeModal">×</button>
       </div>
     </div>
-  </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import FullCalendar from '@fullcalendar/vue3'
 import dayGridPlugin from '@fullcalendar/daygrid'
 
@@ -131,24 +129,10 @@ function handleResize() {
 }
 
 onMounted(() => {
-  nextTick(() => {
-    const starryBackground = document.querySelector('.starry-background');
-    const numberOfStars = 100;
-
-    if (!starryBackground) return;
-
-    for (let i = 0; i < numberOfStars; i++) {
-      const star = document.createElement('div');
-      star.classList.add('star');
-      star.style.top = `${Math.random() * window.innerHeight}px`;
-      star.style.left = `${Math.random() * window.innerWidth}px`;
-      starryBackground.appendChild(star);
-    }
-
-    console.log(`${numberOfStars}개의 별이 생성되었습니다.`);
+ 
     window.addEventListener('resize', handleResize);
   });
-});
+
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize)
@@ -222,29 +206,14 @@ const calendarOptions = ref({
 </script>
 
 <style scoped>
-.starry-background {
+.mainbody {
+  position: relative; /* 콘텐츠 영역 위에 별을 배경으로 두기 위해 relative로 설정 */
+  z-index: 10; /* 별 배경보다 위에 표시 */
+  background-color: #141212; /* 검정 배경 */
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: #141212; /* 검정 배경 */
-}
-
-.star {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: white;
-  border-radius: 50%;
-  opacity: 1; /* 혹시 투명할 수도 있음 */
-  animation: none; /* 테스트용 */
-  z-index: 9999; /* 꼭 넣기 */
-}
-
-/* 콘텐츠 영역은 그 위에 오게끔 설정 */
-.mainbody {
-  position: relative; /* 콘텐츠 영역 위에 별을 배경으로 두기 위해 relative로 설정 */
-  z-index: 10; /* 별 배경보다 위에 표시 */
 }
 
 .profile-box {
@@ -259,6 +228,7 @@ const calendarOptions = ref({
   overflow: hidden;
   transition: height 0.3s ease;
   width: 1100px;
+
 }
 
 .profile-box-content {

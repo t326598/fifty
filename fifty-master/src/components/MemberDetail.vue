@@ -1,5 +1,4 @@
 <template>
-  <div class="starry-background">
     <div class="mainbody">
       <div class="header">
         <h1 class="header1">FIFTY FIFTY</h1>
@@ -93,11 +92,10 @@
         <button class="modal-close" @click="closeModal">×</button>
       </div>
     </div>
-  </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import FullCalendar from '@fullcalendar/vue3'
 import dayGridPlugin from '@fullcalendar/daygrid'
 
@@ -117,20 +115,9 @@ function handleResize() {
   isSmallScreen.value = window.innerWidth <= 480
 }
 onMounted(() => {
-  nextTick(() => {
-    const starryBackground = document.querySelector('.starry-background')
-    const numberOfStars = 100
-    if (!starryBackground) return
-    for (let i = 0; i < numberOfStars; i++) {
-      const star = document.createElement('div')
-      star.classList.add('star')
-      star.style.top = `${Math.random() * window.innerHeight}px`
-      star.style.left = `${Math.random() * window.innerWidth}px`
-      starryBackground.appendChild(star)
-    }
+
     window.addEventListener('resize', handleResize)
   })
-})
 onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize)
 })
