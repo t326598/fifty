@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-FiftyApplication<fiftyfifty>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.fifty.fifty.FiftyApplication",
+            "projectName": "fiftyfifty",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-FiftyApplication<fifty-fiftyfifty>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.fifty.fifty.FiftyApplication",
+            "projectName": "fifty-fiftyfifty",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
